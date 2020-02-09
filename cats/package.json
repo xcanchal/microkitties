@@ -1,7 +1,7 @@
 {
-  "name": "microfrontends-container",
+  "name": "microfrontends-app-cats",
   "version": "1.0.0",
-  "description": "Container application for a microfrontends architecture",
+  "description": "Cats application of a microfrontends architecture",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,8 +17,8 @@
   "keywords": [
     "react",
     "microfrontends",
-    "container",
     "application",
+    "cats",
     "front-end"
   ],
   "author": "Xavier Canchal",
@@ -44,7 +44,6 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.7",
     "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.1.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-better-styled-components": "^1.1.2",

@@ -5,12 +5,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <!-- <link rel="icon" type="image/png" href="" /> -->
-  <meta name="description" content="Microfrontends container">
+  <meta name="description" content="Microfrontends cats app">
   <meta name="author" content="Xavier Canchal">
-  <title>Microfrontends</title>
+  <title>Cats</title>
 </head>
 
 <body>
-  <div id="root"></div>
+  <main id="container"></main>
+  <script type="text/javascript">
+    window.onload = () => {
+      window.renderCats('container');
+    };
+  </script>
 </body>
 </html>

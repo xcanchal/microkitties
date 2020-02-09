@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import HeaderNav from '../header-nav';
 
 const Header = ({ className }) => (
   <div id="component-header" className={`${className}`}>
-    <p>Header</p>
+    <p id="header-logo"> Microfrontends</p>
+    <HeaderNav />
   </div>
 );
 
