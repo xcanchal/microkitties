@@ -1,6 +1,6 @@
 # Microkitties
 
-An application that showcases cats data. It has been motivated by the will to introduce to microfrontends. Based on ReactJS.
+A microfrontends application about cats, based on ReactJS.
 
 The app includes:
 
