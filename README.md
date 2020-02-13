@@ -1,4 +1,4 @@
-# Microkitties
+# Microkitties (WIP)
 
 A microfrontends application about cats, based on ReactJS.
 
