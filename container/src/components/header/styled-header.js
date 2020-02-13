@@ -3,6 +3,7 @@ import Header from './header';
 
 export default styled(Header)`
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 0 24px;
   height: 60px;

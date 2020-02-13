@@ -26,6 +26,7 @@ module.exports = () => ({
   },
   plugins: [
     new HtmlWebpackPlugin({ template: `${src}/index.html` }),
+    // so we can request the microfrontends from the development host publicPath
     new CopyPlugin([
       { from: './micro-frontends', to: `${dist}/micro-frontends` },
     ]),

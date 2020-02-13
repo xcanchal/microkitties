@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HeaderNav from '../header-nav';
+import { Link } from 'react-router-dom';
 
 const Header = ({ className }) => (
   <div id="component-header" className={`${className}`}>
-    <p id="header-logo"> Microfrontends</p>
-    <HeaderNav />
+    <div id="header-logo"><Link to="/breeds">Microkitties</Link></div>
   </div>
 );
 

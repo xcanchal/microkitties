@@ -1,7 +1,7 @@
 {
-  "name": "microfrontends-container",
+  "name": "microkitties-container",
   "version": "1.0.0",
-  "description": "Container application for a microfrontends architecture",
+  "description": "Container application for the microkitties app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
