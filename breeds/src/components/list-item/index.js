@@ -1,3 +1,3 @@
-import BreedListItem from './breed-list-item-component';
+import StyledBreedListItem from './styled-breed-list-item';
 
-export default BreedListItem;
+export default StyledBreedListItem;

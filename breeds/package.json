@@ -30,6 +30,7 @@
   "homepage": "https://github.com/xcanchal/react-microfrontends#readme",
   "dependencies": {
     "core-js": "^3.6.4",
+    "debounce": "^1.2.0",
     "dotenv": "^8.2.0",
     "history": "^4.10.1",
     "prop-types": "^15.7.2",

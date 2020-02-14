@@ -1,3 +1,3 @@
-import Search from './search-component';
+import StyledSearchComponent from './styled-search-component';
 
-export default Search;
+export default StyledSearchComponent;

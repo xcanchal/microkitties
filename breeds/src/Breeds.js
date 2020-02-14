@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { GET } from './api';
 import Search from './components/search';
@@ -6,15 +6,24 @@ import List from './components/list';
 import ListItem from './components/list-item';
 
 const Breeds = () => {
-  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
   const [breeds, setBreeds] = useState([]);
 
   const getBreeds = async () => {
-    setLoading(true);
     const breeds = await GET('breeds');
-    setBreeds(breeds);
-    setLoading(false);
+    let breedsWithImage = await Promise.all(
+      breeds.map((breed) => GET(`images/search?breed_ids=${breed.id}&size=small&limit=1`))
+    );
+    breedsWithImage = breedsWithImage.map(([{ breeds, url }]) => ({
+      ...breeds[0],
+      image: url,
+    }));
+    setBreeds(breedsWithImage);
   }
+
+  const onSearch = ({ target: { value: searchText }}) => {
+    setSearch(searchText);
+  };
 
   useEffect(() => {
     getBreeds();
@@ -22,20 +31,17 @@ const Breeds = () => {
 
   return (
     <div id="breeds-microfrontend">
-      {/* <h1>Search</h1>
-      <Search /> */}
-      {!!breeds.length && (
-        <Fragment>
-          <p>{breeds.length} breeds</p>
-          <List>
-            {breeds.map((breed) => (
-              <ListItem breed={breed}>
-                <pre>{JSON.stringify(breed)}</pre>
-              </ListItem>
-            ))}
-          </List>
-        </Fragment>
-      )}
+      <Search onSearch={onSearch} />
+      {!!breeds.length ? (
+        <List>
+          {breeds
+            .filter(breed => breed.name.toLowerCase().includes(search))
+            .map((breed) => (
+              <ListItem breed={breed} key={`breed-${breed.id}`} />
+            )
+          )}
+        </List>
+      ) : <p>Loading...</p>}
     </div>
   )
 }

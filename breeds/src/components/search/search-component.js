@@ -1,24 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { debounce } from 'debounce';
 
-const Search = ({ onSearch }) => {
-/*   const handleSearch = () => {
-    debounce(onSearch, 500);
-  } */
-
-  return (
-    <div id="breeds-search-component">
-      <input type="text" placeholder="Search breed..." onChange={onSearch}></input>
-      <button>Go</button>
-    </div>
-  );
-}
+const Search = ({ className, onSearch }) => (
+  <div id="breeds-search-component" className={`${className}`}>
+    <input type="text" placeholder="Search breed..." onChange={onSearch}></input>
+  </div>
+);
 
 Search.propTypes = {
+  className: PropTypes.string,
   onSearch: PropTypes.func,
 };
 
 Search.defaultProps = {
+  className: '',
   onSearch: () => {},
 };
 
