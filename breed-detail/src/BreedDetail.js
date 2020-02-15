@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { GET } from './api';
+import Detail from './components/detail';
 
 const BreedDetail = (props) => {
-  console.log('props', props);
   const { match = { params = {} } = {} } = props;
   const [breed, setBreed] = useState(null);
 
   const getBreedDetail = async () => {
-    const breedDetail = await GET(`breeds/search?q=${match.params.id}`);
+    const [breedDetail] = await GET(`breeds/search?q=${match.params.name}`);
+    const breedsWithImage = await GET(`images/search?breed_ids=${breedDetail.id}&size=small&limit=1`);
+    breedDetail.image = breedsWithImage[0].url;
     setBreed(breedDetail);
   }
 
@@ -19,9 +21,7 @@ const BreedDetail = (props) => {
 
   return (
     <div id="breed-detail-microfrontend">
-      {breed ? (
-        <pre>{JSON.stringify(breed)}</pre>
-      ) : <p>Loading...</p>}
+      {breed ? <Detail breed={breed} /> : <p>Loading...</p>}
     </div>
   )
 }

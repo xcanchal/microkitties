@@ -11,10 +11,8 @@ const MicroFrontend = ({ name, host, history, document, window }) => {
   };
 
   useEffect(() => {
-    console.log('rendering');
     const scriptId = `micro-frontend-${name}`;
     if (document.getElementById(scriptId)) {
-      console.log('existing script');
       renderMicroFrontend();
       return;
     }
@@ -26,7 +24,6 @@ const MicroFrontend = ({ name, host, history, document, window }) => {
     document.head.appendChild(script);
 
     return () => {
-      console.log('unmounting');
       window[`unmount${name}`](`${name}-container`);
     };
   }, []);

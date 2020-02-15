@@ -12,7 +12,15 @@ export default styled(SearchComponent)`
     font-size: 1.5rem;
     padding: 0 20px;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    border: none;
+    outline: none;
+    font-weight: 300;
+    background: #f8f8f8;
+    transition: background 0.2s;
+  }
+
+  input:focus {
+    background: #eee;
   }
 `;
 

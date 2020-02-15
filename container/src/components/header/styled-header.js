@@ -6,6 +6,13 @@ export default styled(Header)`
   justify-content: center;
   align-items: center;
   padding: 0 24px;
-  height: 60px;
+  height: 70px;
   box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
+
+  #header-logo a {
+    font-size: 2rem;
+    color: #2687ff;
+    font-weight: 300;
+    text-decoration: none;
+  }
 `;

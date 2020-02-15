@@ -10,16 +10,23 @@ const Breeds = () => {
   const [breeds, setBreeds] = useState([]);
 
   const getBreeds = async () => {
-    const breeds = await GET('breeds');
-    let breedsWithImage = await Promise.all(
-      breeds.map((breed) => GET(`images/search?breed_ids=${breed.id}&size=small&limit=1`))
-    );
-    breedsWithImage = breedsWithImage.map(([{ breeds, url }]) => ({
-      ...breeds[0],
-      image: url,
-    }));
+    let breedsWithImage = localStorage.getItem('breedsWithImage');
+    if (!breedsWithImage) {
+      const breeds = await GET('breeds');
+      breedsWithImage = await Promise.all(
+        breeds.map((breed) => GET(`images/search?breed_ids=${breed.id}&size=small&limit=1`))
+      );
+      breedsWithImage = breedsWithImage.map(([{ breeds, url }]) => ({
+        ...breeds[0],
+        image: url,
+      }));
+      localStorage.setItem('breedsWithImage', JSON.stringify(breedsWithImage));
+    } else {
+      breedsWithImage = JSON.parse(breedsWithImage);
+    }
     setBreeds(breedsWithImage);
   }
+
 
   const onSearch = ({ target: { value: searchText }}) => {
     setSearch(searchText);

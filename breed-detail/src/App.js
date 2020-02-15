@@ -12,7 +12,7 @@ const App = ({ history = defaultHistory }) => (
   <div id="breed-detail-app">
     <GlobalStyles />
     <Router history={history}>
-      <Route exact path="/breed/:id" component={BreedDetail} />
+      <Route exact path="/breed/:name" component={BreedDetail} />
     </Router>
   </div>
 );

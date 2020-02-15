@@ -29,7 +29,7 @@ const GlobalStyles = css`
   }
 
   .layout-content {
-    padding: 70px 24px 24px 24px;
+    padding: 80px 24px 24px 24px;
   }
 `;
 

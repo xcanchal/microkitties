@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 const BreedListItem = ({ breed, className, history }) => {
   const { id, name, description, origin, image } = breed;
@@ -8,7 +8,9 @@ const BreedListItem = ({ breed, className, history }) => {
     <div
       id="breeds-list-item"
       className={`${className} breeds-list-item`}
-      onClick={history.push(`/breed/${id}`)}
+      onClick={() => {
+        history.push(`/breed/${name}`)
+      }}
     >
       <div className="breeds-list-item__left">
         <div className="breeds-list-item__left__image" />
@@ -33,4 +35,4 @@ BreedListItem.defaultProps = {
   history: { push: () => {} },
 };
 
-export default BreedListItem;
+export default withRouter(BreedListItem);
